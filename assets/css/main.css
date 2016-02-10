@@ -402,10 +402,10 @@
 
 	@keyframes header {
 		0% {
-			-moz-transform: translate3d(0,1em,0);
-			-webkit-transform: translate3d(0,1em,0);
-			-ms-transform: translate3d(0,1em,0);
-			transform: translate3d(0,1em,0);
+			-moz-transform: translate3d(0,1em,1em);
+			-webkit-transform: translate3d(0,1em,1em);
+			-ms-transform: translate3d(0,1em,1em);
+			transform: translate3d(0,1em,1em);
 			opacity: 0;
 		}
 
@@ -1038,4 +1038,5 @@
 
 		#header nav {
 			padding: 0 1em;
-		} }
+		}
+}

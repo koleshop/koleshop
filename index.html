@@ -13,24 +13,28 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <link rel="stylesheet" href="/assets/css/flipclock.css">
 	</head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
 	<body class="loading">
 		<div id="wrapper">
 			<div id="bg"></div>
-			<div id="overlay"></div>
+			<div id="overlay">
+            </div>
 			<div id="main">
 
 				<!-- Header -->
 					<header id="header">
 						<h1>Koleshop</h1>
-						<p>Coming Soon &nbsp;&bull;&nbsp; Stay Tuned &nbsp;</p>
+						<p>Time to Launch &nbsp;</p>
+                        <p>
+                        <div class="clock center" style="margin:2em;"></div>
+                        </p>
 						<nav>
 							<ul>
-								<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-								<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-								<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+								<li><a href="https://twitter.com/koleshop1" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://facebook.com/koleshop" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 							</ul>
 						</nav>
 					</header>
@@ -43,6 +47,35 @@
 			</div>
 		</div>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        
+        <script> var clock;
+		
+		$(document).ready(function() {
+			
+			$(document).ready(function() {
+			var clock;
+
+			clock = $('.clock').FlipClock({
+		        clockFace: 'DailyCounter',
+		        autoStart: false,
+		        callbacks: {
+		        	stop: function() {
+		        		$('.message').html('The clock has stopped!')
+		        	}
+		        }
+		    });
+            var launchDate = '2016-03-07T11:00:00.000Z';
+            var toTime = new Date(launchDate);
+            var fromTime = new Date();
+            var differenceTravel = toTime.getTime() - fromTime.getTime();
+            var seconds = Math.floor((differenceTravel) / (1000));
+		    clock.setTime(seconds);
+		    clock.setCountdown(true);
+		    clock.start();
+
+		});
+		});
+        </script>
 		<script>
 			window.onload = function() { document.body.className = ''; }
 			window.ontouchmove = function() { return false; }
